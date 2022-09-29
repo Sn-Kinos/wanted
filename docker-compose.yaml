@@ -3,6 +3,8 @@ version: '3.9'
 services:
   api:
     restart: always
+    env_file:
+      - .env
     image: node:16-alpine
     working_dir: /home/node/app
     ports:
