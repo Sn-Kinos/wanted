@@ -7,7 +7,7 @@ plugins:
   - 'unused-imports'
 extends:
   - 'plugin:@typescript-eslint/recommended'
-  - 'plugin:prettier/recommended'
+  - 'prettier'
 root: true
 env:
   node: true
