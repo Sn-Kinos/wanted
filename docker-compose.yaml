@@ -14,7 +14,7 @@ services:
     image: mariadb:10.9
     restart: always
     env_file:
-      - .env
+      - .db.env
     environment:
       TZ: Asia/Seoul
     ports:
