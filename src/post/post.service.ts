@@ -70,9 +70,7 @@ export class PostService {
   }
 
   async update(id: number, updatePostDto: UpdatePostDto) {
-    const post = await this.postRepository.findOne({
-      index: id,
-    });
+    const post = await this.findOne(id);
 
     if (post) {
       const isPasswordCorrect = await bcrypt.compare(updatePostDto.password, post.password);
