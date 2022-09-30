@@ -10,7 +10,7 @@ export class SuccessInterceptor<T> implements NestInterceptor<T, WantedResponse<
       map((data) => {
         return {
           message: 'success',
-          data: data.data,
+          data: data,
         };
       })
     );
