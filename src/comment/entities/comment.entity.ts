@@ -9,15 +9,23 @@ export class Comment {
   @ManyToOne({ entity: () => Post, index: 'FK_post_TO_comment_1' })
   post!: Post;
 
-  @ManyToOne({ entity: () => Comment, index: 'FK_comment_TO_comment_1' })
-  reply!: Comment;
+  @ManyToOne({ entity: () => Comment, index: 'FK_comment_TO_comment_1', nullable: true })
+  reply?: Comment;
 
-  @Property({ length: 255, nullable: true })
-  content?: string;
+  @Property({ columnType: 'text', length: 65535 })
+  content: string;
 
-  @Property({ columnType: 'text', length: 65535, nullable: true })
-  writer?: string;
+  @Property({ length: 255 })
+  writer: string;
 
-  @Property({ nullable: true })
-  createdAt?: Date;
+  @Property({
+    columnType: 'timestamp',
+  })
+  createdAt: Date = new Date();
+
+  @Property({
+    columnType: 'timestamp',
+    onUpdate: () => new Date(),
+  })
+  updatedAt: Date = new Date();
 }
