@@ -33,7 +33,7 @@ export class CommentService {
     return comment;
   }
 
-  findOne(id: number) {
+  findComments(id: number) {
     return `This action returns a #${id} comment`;
   }
 
