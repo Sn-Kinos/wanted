@@ -7,5 +7,6 @@ import { PostService } from './post.service';
   imports: [OrmModule],
   controllers: [PostController],
   providers: [PostService],
+  exports: [PostService],
 })
 export class PostModule {}
