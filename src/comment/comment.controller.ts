@@ -16,14 +16,4 @@ export class CommentController {
   findOne(@Param('id') id: string) {
     return this.commentService.findComments(+id);
   }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateCommentDto: UpdateCommentDto) {
-    return this.commentService.update(+id, updateCommentDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.commentService.remove(+id);
-  }
 }
