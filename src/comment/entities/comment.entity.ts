@@ -3,8 +3,8 @@ import { Post } from 'src/post/entities/post.entity';
 
 @Entity()
 export class Comment {
-  @PrimaryKey({ columnType: 'bigint' })
-  index!: string;
+  @PrimaryKey()
+  index!: number;
 
   @ManyToOne({ entity: () => Post, index: 'FK_post_TO_comment_1' })
   post!: Post;
