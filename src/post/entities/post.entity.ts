@@ -17,7 +17,6 @@ export class Post {
   @Index()
   writer: string;
 
-  @Property()
   @Property({ hidden: true })
   password: string;
 
