@@ -7,14 +7,14 @@ export class Post {
   index!: number;
 
   @Property({ columnType: 'text', length: 65535 })
-  @Index()
+  @Index({ type: 'fulltext' })
   title: string;
 
   @Property({ columnType: 'text', length: 65535 })
   content: string;
 
   @Property({ length: 255 })
-  @Index()
+  @Index({ type: 'fulltext' })
   writer: string;
 
   @Property({ hidden: true })

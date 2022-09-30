@@ -1,4 +1,4 @@
-import { EntityRepository } from '@mikro-orm/core';
+import { EntityRepository, FilterQuery } from '@mikro-orm/core';
 import { InjectRepository } from '@mikro-orm/nestjs';
 import { Injectable } from '@nestjs/common';
 import bcrypt from 'bcryptjs';
@@ -6,6 +6,14 @@ import { CreatePostDto } from './dto/create-post.dto';
 import { GetPostDto } from './dto/get-post.dto';
 import { UpdatePostDto } from './dto/update-post.dto';
 import { Post } from './entities/post.entity';
+
+const getQueryString = (value: string) =>
+  value.length > 0
+    ? value
+        .split(' ')
+        .map((word) => `${word}*`)
+        .join(' ')
+    : '';
 
 @Injectable()
 export class PostService {
@@ -30,11 +38,35 @@ export class PostService {
   }
 
   findAll(getPostDto: GetPostDto) {
-    return this.postRepository.findAll();
+    const { title = undefined, writer = undefined, page = 1, limit = 10 } = getPostDto;
+
+    const postWhere: FilterQuery<Post> = {};
+
+    if (title) {
+      postWhere.title = {
+        $fulltext: getQueryString(title),
+      };
+    }
+
+    if (writer) {
+      postWhere.writer = {
+        $fulltext: getQueryString(writer),
+      };
+    }
+
+    return this.postRepository.find(postWhere, {
+      limit,
+      offset: (page - 1) * limit,
+      orderBy: {
+        index: 'desc',
+      },
+    });
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} post`;
+    return this.postRepository.findOne({
+      index: id,
+    });
   }
 
   update(id: number, updatePostDto: UpdatePostDto) {

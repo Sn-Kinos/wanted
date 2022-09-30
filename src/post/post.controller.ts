@@ -13,8 +13,18 @@ export class PostController {
   }
 
   @Get()
-  findAll(@Query() title?: string, @Query() writer?: string) {
-    return this.postService.findAll({ title, writer });
+  findAll(
+    @Query('title') title?: string,
+    @Query('writer') writer?: string,
+    @Query('page') page?: number,
+    @Query('limit') limit?: number
+  ) {
+    return this.postService.findAll({
+      title,
+      writer,
+      page,
+      limit,
+    });
   }
 
   @Get(':id')
