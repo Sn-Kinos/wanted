@@ -1,8 +1,8 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post, Query } from '@nestjs/common';
+import { ParamsValidator } from '../common/validator/param.interface';
 import { CreatePostDto } from './dto/create-post.dto';
 import { DeletePostDto } from './dto/delete-post.dto';
 import { UpdatePostDto } from './dto/update-post.dto';
-import { ParamsValidator } from './post.interface';
 import { PostService } from './post.service';
 
 @Controller('posts')
