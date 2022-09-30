@@ -1,26 +1,22 @@
-import { Injectable } from '@nestjs/common';
-import { CreateKeywordDto } from './dto/create-keyword.dto';
-import { UpdateKeywordDto } from './dto/update-keyword.dto';
+import { EntityRepository } from '@mikro-orm/core';
+import { InjectRepository } from '@mikro-orm/nestjs';
+import { Injectable, Logger } from '@nestjs/common';
+import { Keyword } from './entities/keyword.entity';
 
 @Injectable()
 export class KeywordService {
-  create(createKeywordDto: CreateKeywordDto) {
-    return 'This action adds a new keyword';
-  }
+  constructor(
+    @InjectRepository(Keyword)
+    private readonly keywordRepository: EntityRepository<Keyword>
+  ) {}
 
-  findAll() {
-    return `This action returns all keyword`;
-  }
+  async sendNotifications(content: string) {
+    const keywords = await this.keywordRepository.findAll();
 
-  findOne(id: number) {
-    return `This action returns a #${id} keyword`;
-  }
-
-  update(id: number, updateKeywordDto: UpdateKeywordDto) {
-    return `This action updates a #${id} keyword`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} keyword`;
+    keywords.forEach((keyword) => {
+      if (content.includes(keyword.word)) {
+        Logger.log(`Notification sent to ${keyword.writer}`);
+      }
+    });
   }
 }
