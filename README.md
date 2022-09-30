@@ -9,6 +9,15 @@
 
 ## 실행방법
 
+### 사전 작업
+
+```zsh
+yarn
+yarn schema:update
+```
+
+> `Zero-install` 기반으로 되어있으나 실행 환경 별 오작동 가능성을 차단하기 위함
+
 ### `Docker`
 
 실행
@@ -24,14 +33,6 @@ docker-compose down -v
 ```
 
 ### `Node.js`
-
-사전 작업
-
-```zsh
-yarn
-```
-
-> `Zero-install` 기반으로 되어있으나 실행 환경 별 오작동 가능성을 차단하기 위함
 
 실행
 
