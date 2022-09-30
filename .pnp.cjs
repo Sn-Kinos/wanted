@@ -46,6 +46,8 @@ const RAW_RUNTIME_STATE =
           ["@types/supertest", "npm:2.0.12"],\
           ["@typescript-eslint/eslint-plugin", "virtual:3c2a202e32416a68d6958532b453048f0c250f6c252347e47dfda8d20990be3a1606a89dd97e428cca77947397523f619af216e83409e902c1c65a037a976e63#npm:5.37.0"],\
           ["@typescript-eslint/parser", "virtual:3c2a202e32416a68d6958532b453048f0c250f6c252347e47dfda8d20990be3a1606a89dd97e428cca77947397523f619af216e83409e902c1c65a037a976e63#npm:5.37.0"],\
+          ["class-transformer", "npm:0.5.1"],\
+          ["class-validator", "npm:0.13.2"],\
           ["eslint", "npm:8.23.1"],\
           ["eslint-config-prettier", "virtual:3c2a202e32416a68d6958532b453048f0c250f6c252347e47dfda8d20990be3a1606a89dd97e428cca77947397523f619af216e83409e902c1c65a037a976e63#npm:8.5.0"],\
           ["eslint-plugin-prettier", "virtual:3c2a202e32416a68d6958532b453048f0c250f6c252347e47dfda8d20990be3a1606a89dd97e428cca77947397523f619af216e83409e902c1c65a037a976e63#npm:4.2.1"],\
@@ -1786,8 +1788,8 @@ const RAW_RUNTIME_STATE =
           ["@types/reflect-metadata", null],\
           ["@types/rxjs", null],\
           ["cache-manager", null],\
-          ["class-transformer", null],\
-          ["class-validator", null],\
+          ["class-transformer", "npm:0.5.1"],\
+          ["class-validator", "npm:0.13.2"],\
           ["iterare", "npm:1.2.1"],\
           ["reflect-metadata", "npm:0.1.13"],\
           ["rxjs", "npm:7.5.6"],\
@@ -1875,8 +1877,8 @@ const RAW_RUNTIME_STATE =
           ["@types/class-validator", null],\
           ["@types/nestjs__common", null],\
           ["@types/reflect-metadata", null],\
-          ["class-transformer", null],\
-          ["class-validator", null],\
+          ["class-transformer", "npm:0.5.1"],\
+          ["class-validator", "npm:0.13.2"],\
           ["reflect-metadata", "npm:0.1.13"]\
         ],\
         "packagePeers": [\
@@ -3708,6 +3710,26 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/cjs-module-lexer-npm-1.2.2-473ce063ea-a16484407c.zip/node_modules/cjs-module-lexer/",\
         "packageDependencies": [\
           ["cjs-module-lexer", "npm:1.2.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["class-transformer", [\
+      ["npm:0.5.1", {\
+        "packageLocation": "./.yarn/cache/class-transformer-npm-0.5.1-96b5161e6c-08f2a0eaf5.zip/node_modules/class-transformer/",\
+        "packageDependencies": [\
+          ["class-transformer", "npm:0.5.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["class-validator", [\
+      ["npm:0.13.2", {\
+        "packageLocation": "./.yarn/cache/class-validator-npm-0.13.2-915206252c-3b3c45bb9c.zip/node_modules/class-validator/",\
+        "packageDependencies": [\
+          ["class-validator", "npm:0.13.2"],\
+          ["libphonenumber-js", "npm:1.10.13"],\
+          ["validator", "npm:13.7.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -6652,6 +6674,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["libphonenumber-js", [\
+      ["npm:1.10.13", {\
+        "packageLocation": "./.yarn/cache/libphonenumber-js-npm-1.10.13-20d15034d2-d93adfae67.zip/node_modules/libphonenumber-js/",\
+        "packageDependencies": [\
+          ["libphonenumber-js", "npm:1.10.13"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["lines-and-columns", [\
       ["npm:1.2.4", {\
         "packageLocation": "./.yarn/cache/lines-and-columns-npm-1.2.4-d6c7cc5799-c0807326f9.zip/node_modules/lines-and-columns/",\
@@ -9199,6 +9230,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["validator", [\
+      ["npm:13.7.0", {\
+        "packageLocation": "./.yarn/cache/validator-npm-13.7.0-624277e841-1c42a259d0.zip/node_modules/validator/",\
+        "packageDependencies": [\
+          ["validator", "npm:13.7.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["vary", [\
       ["npm:1.1.2", {\
         "packageLocation": "./.yarn/cache/vary-npm-1.1.2-b49f70ae63-b1db20d4be.zip/node_modules/vary/",\
@@ -9243,6 +9283,8 @@ const RAW_RUNTIME_STATE =
           ["@types/supertest", "npm:2.0.12"],\
           ["@typescript-eslint/eslint-plugin", "virtual:3c2a202e32416a68d6958532b453048f0c250f6c252347e47dfda8d20990be3a1606a89dd97e428cca77947397523f619af216e83409e902c1c65a037a976e63#npm:5.37.0"],\
           ["@typescript-eslint/parser", "virtual:3c2a202e32416a68d6958532b453048f0c250f6c252347e47dfda8d20990be3a1606a89dd97e428cca77947397523f619af216e83409e902c1c65a037a976e63#npm:5.37.0"],\
+          ["class-transformer", "npm:0.5.1"],\
+          ["class-validator", "npm:0.13.2"],\
           ["eslint", "npm:8.23.1"],\
           ["eslint-config-prettier", "virtual:3c2a202e32416a68d6958532b453048f0c250f6c252347e47dfda8d20990be3a1606a89dd97e428cca77947397523f619af216e83409e902c1c65a037a976e63#npm:8.5.0"],\
           ["eslint-plugin-prettier", "virtual:3c2a202e32416a68d6958532b453048f0c250f6c252347e47dfda8d20990be3a1606a89dd97e428cca77947397523f619af216e83409e902c1c65a037a976e63#npm:4.2.1"],\

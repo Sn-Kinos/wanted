@@ -2635,6 +2635,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"class-transformer@npm:^0.5.1":
+  version: 0.5.1
+  resolution: "class-transformer@npm:0.5.1"
+  checksum: 08f2a0eaf5e674ef8b8839bd63c9b917fcc811a8d7044702dee933b1ba88d8906f5141c616173c22568d8b3e95cdf4e3afd25dcbd0f878b138a0b6e550b11d0c
+  languageName: node
+  linkType: hard
+
+"class-validator@npm:^0.13.2":
+  version: 0.13.2
+  resolution: "class-validator@npm:0.13.2"
+  dependencies:
+    libphonenumber-js: "npm:^1.9.43"
+    validator: "npm:^13.7.0"
+  checksum: 3b3c45bb9c84be5a621c23ecc1db70a844554d348b0d64229487e46b362fb945b885e60b65c2016f3f782f7e609c75919cb058ba3b264fb7ee8b30e654fa938f
+  languageName: node
+  linkType: hard
+
 "clean-stack@npm:^2.0.0":
   version: 2.2.0
   resolution: "clean-stack@npm:2.2.0"
@@ -5126,6 +5143,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"libphonenumber-js@npm:^1.9.43":
+  version: 1.10.13
+  resolution: "libphonenumber-js@npm:1.10.13"
+  checksum: d93adfae67d6a9eaa94d836eca62ce6b5ce46ae7e3bee5cc72c1453062e54c820ad38a5eefb219ac99198c1c68c9fdae6d3ce9802a601e6f7a7028376e6c2a8b
+  languageName: node
+  linkType: hard
+
 "lines-and-columns@npm:^1.1.6":
   version: 1.2.4
   resolution: "lines-and-columns@npm:1.2.4"
@@ -7330,6 +7354,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"validator@npm:^13.7.0":
+  version: 13.7.0
+  resolution: "validator@npm:13.7.0"
+  checksum: 1c42a259d072334c89dbd94ae026901a8a85dc7389f24a00650a38827ab44ee563370b896b4cc318697587e7aa93d230fdfa527d78c187b08f9816af23025a74
+  languageName: node
+  linkType: hard
+
 "vary@npm:^1, vary@npm:~1.1.2":
   version: 1.1.2
   resolution: "vary@npm:1.1.2"
@@ -7370,6 +7401,8 @@ __metadata:
     "@types/supertest": "npm:^2.0.11"
     "@typescript-eslint/eslint-plugin": "npm:^5.0.0"
     "@typescript-eslint/parser": "npm:^5.0.0"
+    class-transformer: "npm:^0.5.1"
+    class-validator: "npm:^0.13.2"
     eslint: "npm:^8.0.1"
     eslint-config-prettier: "npm:^8.3.0"
     eslint-plugin-prettier: "npm:^4.0.0"
