@@ -1,6 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post, Query } from '@nestjs/common';
 import { CreatePostDto } from './dto/create-post.dto';
 import { UpdatePostDto } from './dto/update-post.dto';
+import { ParamsValidator } from './post.interface';
 import { PostService } from './post.service';
 
 @Controller('posts')
@@ -28,17 +29,17 @@ export class PostController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.postService.findOne(+id);
+  findOne(@Param() params: ParamsValidator) {
+    return this.postService.findOne(+params.id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updatePostDto: UpdatePostDto) {
-    return this.postService.update(+id, updatePostDto);
+  update(@Param() params: ParamsValidator, @Body() updatePostDto: UpdatePostDto) {
+    return this.postService.update(+params.id, updatePostDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.postService.remove(+id);
+  remove(@Param() params: ParamsValidator, @Body() deletePostDto: DeletePostDto) {
+    return this.postService.remove(+params.id);
   }
 }
