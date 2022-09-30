@@ -3,7 +3,6 @@ import { InjectRepository } from '@mikro-orm/nestjs';
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { PostService } from 'src/post/post.service';
 import { CreateCommentDto } from './dto/create-comment.dto';
-import { UpdateCommentDto } from './dto/update-comment.dto';
 import { Comment } from './entities/comment.entity';
 
 @Injectable()
@@ -33,7 +32,9 @@ export class CommentService {
     return comment;
   }
 
-  findComments(id: number) {
-    return `This action returns a #${id} comment`;
+  async findComments(id: number) {
+    const post = await this.postService.findOne(id);
+
+    return this.commentRepository.find({ post });
   }
 }
