@@ -1,5 +1,6 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post, Query } from '@nestjs/common';
 import { CreatePostDto } from './dto/create-post.dto';
+import { DeletePostDto } from './dto/delete-post.dto';
 import { UpdatePostDto } from './dto/update-post.dto';
 import { ParamsValidator } from './post.interface';
 import { PostService } from './post.service';
@@ -40,6 +41,6 @@ export class PostController {
 
   @Delete(':id')
   remove(@Param() params: ParamsValidator, @Body() deletePostDto: DeletePostDto) {
-    return this.postService.remove(+params.id);
+    return this.postService.remove(+params.id, deletePostDto);
   }
 }

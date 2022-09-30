@@ -3,6 +3,7 @@ import { InjectRepository } from '@mikro-orm/nestjs';
 import { ForbiddenException, Injectable, NotFoundException } from '@nestjs/common';
 import bcrypt from 'bcryptjs';
 import { CreatePostDto } from './dto/create-post.dto';
+import { DeletePostDto } from './dto/delete-post.dto';
 import { GetPostDto } from './dto/get-post.dto';
 import { UpdatePostDto } from './dto/update-post.dto';
 import { Post } from './entities/post.entity';
@@ -91,7 +92,20 @@ export class PostService {
     throw new NotFoundException('존재하지 않는 게시글입니다.');
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} post`;
+  async remove(id: number, deletePostDto: DeletePostDto) {
+    const post = await this.findOne(id);
+
+    if (post) {
+      const isPasswordCorrect = await bcrypt.compare(deletePostDto.password, post.password);
+
+      if (isPasswordCorrect) {
+        await this.postRepository.remove(post).flush();
+        return true;
+      } else {
+        throw new ForbiddenException('비밀번호가 일치하지 않습니다.');
+      }
+    }
+
+    throw new NotFoundException('존재하지 않는 게시글입니다.');
   }
 }
