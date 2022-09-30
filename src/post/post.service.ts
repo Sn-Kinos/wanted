@@ -16,7 +16,7 @@ export class PostService {
     return 'This action adds a new post';
   }
 
-  findAll() {
+  findAll(getPostDto: GetPostDto) {
     return this.postRepository.findAll();
   }
 
