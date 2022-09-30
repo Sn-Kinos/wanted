@@ -1,7 +1,9 @@
 import { EntityRepository } from '@mikro-orm/core';
 import { InjectRepository } from '@mikro-orm/nestjs';
 import { Injectable } from '@nestjs/common';
+import bcrypt from 'bcryptjs';
 import { CreatePostDto } from './dto/create-post.dto';
+import { GetPostDto } from './dto/get-post.dto';
 import { UpdatePostDto } from './dto/update-post.dto';
 import { Post } from './entities/post.entity';
 
@@ -12,8 +14,19 @@ export class PostService {
     private readonly postRepository: EntityRepository<Post>
   ) {}
 
-  create(createPostDto: CreatePostDto) {
-    return 'This action adds a new post';
+  async create(createPostDto: CreatePostDto) {
+    const salt = await bcrypt.genSalt();
+    const encryptedPassword = await bcrypt.hash(createPostDto.password, salt);
+
+    const post = this.postRepository.create({
+      ...createPostDto,
+      password: encryptedPassword,
+    });
+    await this.postRepository.persist(post).flush();
+
+    delete post.password;
+
+    return post;
   }
 
   findAll(getPostDto: GetPostDto) {
