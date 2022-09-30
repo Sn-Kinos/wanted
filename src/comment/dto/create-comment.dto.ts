@@ -1,5 +1,5 @@
 import { PickType } from '@nestjs/mapped-types';
-import { IsNotEmpty } from 'class-validator';
+import { IsNotEmpty, IsNumberString, IsOptional } from 'class-validator';
 import { Comment } from '../entities/comment.entity';
 
 export class CreateCommentDto extends PickType(Comment, ['writer', 'content'] as const) {
@@ -8,6 +8,10 @@ export class CreateCommentDto extends PickType(Comment, ['writer', 'content'] as
 
   @IsNotEmpty()
   content: string;
+
+  @IsOptional()
+  @IsNumberString()
+  reply_index?: number;
 
   @IsNotEmpty()
   post_index: number;

@@ -20,11 +20,27 @@ export class CommentService {
       throw new BadRequestException('존재하지 않는 게시글에 댓글을 달 수 없습니다.');
     }
 
+    let reply: Comment;
+
+    if (createCommentDto.reply_index) {
+      reply = await this.commentRepository.findOne({
+        index: createCommentDto.reply_index,
+      });
+
+      if (!reply) {
+        throw new BadRequestException('존재하지 않는 댓글에 답글을 달 수 없습니다.');
+      }
+      if (reply.reply) {
+        throw new BadRequestException('답글에는 답글을 달 수 없습니다.');
+      }
+    }
+
     delete createCommentDto.post_index;
 
     const comment = this.commentRepository.create({
       ...createCommentDto,
       post,
+      reply,
     });
 
     await this.commentRepository.persist(comment).flush();
