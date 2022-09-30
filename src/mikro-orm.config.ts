@@ -7,6 +7,7 @@ const config: MikroOrmModuleOptions = {
   entitiesTs: ['src/**/*.entity.ts'],
   metadataProvider: TsMorphMetadataProvider,
   highlighter: new SqlHighlighter(),
+  debug: process.env.NODE_ENV !== 'production',
 };
 
 export default config;
