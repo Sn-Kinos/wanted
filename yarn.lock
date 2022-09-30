@@ -1429,6 +1429,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/bcryptjs@npm:^2":
+  version: 2.4.2
+  resolution: "@types/bcryptjs@npm:2.4.2"
+  checksum: b9b3ee4f89720ba9c61f69a14fdcdec39ed56ecba99b632be3454acaaa8a168690e6b875d61919f19987d524cf16124de685dec820b2f470e8032e137a1f7006
+  languageName: node
+  linkType: hard
+
 "@types/body-parser@npm:*":
   version: 1.19.2
   resolution: "@types/body-parser@npm:1.19.2"
@@ -2332,6 +2339,13 @@ __metadata:
   version: 1.5.1
   resolution: "base64-js@npm:1.5.1"
   checksum: fbd7996978cfe0dd378103fa8999e4acee99b8840d49f452457fa8cb418bad4c20ec9ef6b196a0dc63591f0416a4b8c8d220607292cdaf3998b88685bc0f6c14
+  languageName: node
+  linkType: hard
+
+"bcryptjs@npm:^2.4.3":
+  version: 2.4.3
+  resolution: "bcryptjs@npm:2.4.3"
+  checksum: bf6a43e9c45ce8e93bd0d5a5c229acabdb632db08a027e986757524cac1d7f0e6e4c3b733637729d3c287df7500911fbfb4a99931014f05d51ee36ad52784e73
   languageName: node
   linkType: hard
 
@@ -7395,12 +7409,14 @@ __metadata:
     "@nestjs/platform-express": "npm:^9.1.2"
     "@nestjs/schematics": "npm:^9.0.0"
     "@nestjs/testing": "npm:^9.0.0"
+    "@types/bcryptjs": "npm:^2"
     "@types/express": "npm:^4.17.13"
     "@types/jest": "npm:27.5.0"
     "@types/node": "npm:^16.0.0"
     "@types/supertest": "npm:^2.0.11"
     "@typescript-eslint/eslint-plugin": "npm:^5.0.0"
     "@typescript-eslint/parser": "npm:^5.0.0"
+    bcryptjs: "npm:^2.4.3"
     class-transformer: "npm:^0.5.1"
     class-validator: "npm:^0.13.2"
     eslint: "npm:^8.0.1"

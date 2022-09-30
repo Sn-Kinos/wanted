@@ -40,12 +40,14 @@ const RAW_RUNTIME_STATE =
           ["@nestjs/platform-express", "virtual:3c2a202e32416a68d6958532b453048f0c250f6c252347e47dfda8d20990be3a1606a89dd97e428cca77947397523f619af216e83409e902c1c65a037a976e63#npm:9.1.2"],\
           ["@nestjs/schematics", "virtual:b0a9a6f2e44f2b06616d562d1bd0e5bf6a4e1dc47fe01bb7dab91d522c0d35b526e53112e112a8fbcf26213b3d26b1aa78912c4de2ebcb74f02c4b4484232d64#npm:9.0.3"],\
           ["@nestjs/testing", "virtual:3c2a202e32416a68d6958532b453048f0c250f6c252347e47dfda8d20990be3a1606a89dd97e428cca77947397523f619af216e83409e902c1c65a037a976e63#npm:9.1.2"],\
+          ["@types/bcryptjs", "npm:2.4.2"],\
           ["@types/express", "npm:4.17.14"],\
           ["@types/jest", "npm:27.5.0"],\
           ["@types/node", "npm:16.11.59"],\
           ["@types/supertest", "npm:2.0.12"],\
           ["@typescript-eslint/eslint-plugin", "virtual:3c2a202e32416a68d6958532b453048f0c250f6c252347e47dfda8d20990be3a1606a89dd97e428cca77947397523f619af216e83409e902c1c65a037a976e63#npm:5.37.0"],\
           ["@typescript-eslint/parser", "virtual:3c2a202e32416a68d6958532b453048f0c250f6c252347e47dfda8d20990be3a1606a89dd97e428cca77947397523f619af216e83409e902c1c65a037a976e63#npm:5.37.0"],\
+          ["bcryptjs", "npm:2.4.3"],\
           ["class-transformer", "npm:0.5.1"],\
           ["class-validator", "npm:0.13.2"],\
           ["eslint", "npm:8.23.1"],\
@@ -2184,6 +2186,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@types/bcryptjs", [\
+      ["npm:2.4.2", {\
+        "packageLocation": "./.yarn/cache/@types-bcryptjs-npm-2.4.2-3a0c115732-b9b3ee4f89.zip/node_modules/@types/bcryptjs/",\
+        "packageDependencies": [\
+          ["@types/bcryptjs", "npm:2.4.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@types/body-parser", [\
       ["npm:1.19.2", {\
         "packageLocation": "./.yarn/cache/@types-body-parser-npm-1.19.2-f845b7b538-839e71535a.zip/node_modules/@types/body-parser/",\
@@ -3382,6 +3393,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/base64-js-npm-1.5.1-b2f7275641-fbd7996978.zip/node_modules/base64-js/",\
         "packageDependencies": [\
           ["base64-js", "npm:1.5.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["bcryptjs", [\
+      ["npm:2.4.3", {\
+        "packageLocation": "./.yarn/cache/bcryptjs-npm-2.4.3-32de4957eb-bf6a43e9c4.zip/node_modules/bcryptjs/",\
+        "packageDependencies": [\
+          ["bcryptjs", "npm:2.4.3"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -9277,12 +9297,14 @@ const RAW_RUNTIME_STATE =
           ["@nestjs/platform-express", "virtual:3c2a202e32416a68d6958532b453048f0c250f6c252347e47dfda8d20990be3a1606a89dd97e428cca77947397523f619af216e83409e902c1c65a037a976e63#npm:9.1.2"],\
           ["@nestjs/schematics", "virtual:b0a9a6f2e44f2b06616d562d1bd0e5bf6a4e1dc47fe01bb7dab91d522c0d35b526e53112e112a8fbcf26213b3d26b1aa78912c4de2ebcb74f02c4b4484232d64#npm:9.0.3"],\
           ["@nestjs/testing", "virtual:3c2a202e32416a68d6958532b453048f0c250f6c252347e47dfda8d20990be3a1606a89dd97e428cca77947397523f619af216e83409e902c1c65a037a976e63#npm:9.1.2"],\
+          ["@types/bcryptjs", "npm:2.4.2"],\
           ["@types/express", "npm:4.17.14"],\
           ["@types/jest", "npm:27.5.0"],\
           ["@types/node", "npm:16.11.59"],\
           ["@types/supertest", "npm:2.0.12"],\
           ["@typescript-eslint/eslint-plugin", "virtual:3c2a202e32416a68d6958532b453048f0c250f6c252347e47dfda8d20990be3a1606a89dd97e428cca77947397523f619af216e83409e902c1c65a037a976e63#npm:5.37.0"],\
           ["@typescript-eslint/parser", "virtual:3c2a202e32416a68d6958532b453048f0c250f6c252347e47dfda8d20990be3a1606a89dd97e428cca77947397523f619af216e83409e902c1c65a037a976e63#npm:5.37.0"],\
+          ["bcryptjs", "npm:2.4.3"],\
           ["class-transformer", "npm:0.5.1"],\
           ["class-validator", "npm:0.13.2"],\
           ["eslint", "npm:8.23.1"],\
