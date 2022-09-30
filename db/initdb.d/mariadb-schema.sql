@@ -1,52 +1,53 @@
-DROP TABLE IF EXISTS `post`;
-
-CREATE TABLE `post` (
-	`index`	bigint	NOT NULL,
-	`title`	text	NULL,
-	`content`	text	NULL,
-	`writer`	varchar(255)	NULL,
-	`password`	binary(16)	NULL,
-	`created_at`	datetime	NULL,
-	`updated_at`	datetime	NULL
-);
-
-DROP TABLE IF EXISTS `comment`;
-
-CREATE TABLE `comment` (
-	`index`	bigint	NOT NULL,
-	`post_index`	bigint	NOT NULL,
-	`reply_index`	bigint	NOT NULL,
-	`content`	varchar(255)	NULL,
-	`writer`	text	NULL,
-	`created_at`	datetime	NULL
-);
-
-DROP TABLE IF EXISTS `keyword`;
-
-CREATE TABLE `keyword` (
-	`writer`	varchar(255)	NULL,
-	`word`	varchar(255)	NULL
-);
-
-ALTER TABLE `post` ADD CONSTRAINT `PK_POST` PRIMARY KEY (
-	`index`
-);
-
-ALTER TABLE `comment` ADD CONSTRAINT `PK_COMMENT` PRIMARY KEY (
-	`index`
-);
-
-ALTER TABLE `comment` ADD CONSTRAINT `FK_post_TO_comment_1` FOREIGN KEY (
-	`post_index`
+create table keyword
+(
+    `index` int unsigned auto_increment
+        primary key,
+    writer  varchar(255) null,
+    word    varchar(255) null
 )
-REFERENCES `post` (
-	`index`
-);
+    charset = utf8mb4;
 
-ALTER TABLE `comment` ADD CONSTRAINT `FK_comment_TO_comment_1` FOREIGN KEY (
-	`reply_index`
+create table post
+(
+    `index`    int unsigned auto_increment
+        primary key,
+    title      text                                    not null,
+    content    text                                    not null,
+    writer     varchar(255)                            not null,
+    password   varchar(255)                            not null,
+    created_at timestamp default current_timestamp()   not null on update current_timestamp(),
+    updated_at timestamp default '0000-00-00 00:00:00' not null
 )
-REFERENCES `comment` (
-	`index`
-);
+    charset = utf8mb4;
+
+create table comment
+(
+    `index`     int unsigned auto_increment
+        primary key,
+    post_index  int unsigned                            not null,
+    reply_index int unsigned                            null,
+    content     text                                    not null,
+    writer      varchar(255)                            not null,
+    created_at  timestamp default current_timestamp()   not null on update current_timestamp(),
+    updated_at  timestamp default '0000-00-00 00:00:00' not null,
+    constraint comment_post_index_foreign
+        foreign key (post_index) references post (`index`)
+            on update cascade,
+    constraint comment_reply_index_foreign
+        foreign key (reply_index) references comment (`index`)
+            on update cascade on delete set null
+)
+    charset = utf8mb4;
+
+create index FK_comment_TO_comment_1
+    on comment (reply_index);
+
+create index FK_post_TO_comment_1
+    on comment (post_index);
+
+create fulltext index post_title_index
+    on post (title);
+
+create fulltext index post_writer_index
+    on post (writer);
 
