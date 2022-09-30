@@ -33,10 +33,6 @@ export class CommentService {
     return comment;
   }
 
-  findAll() {
-    return `This action returns all comment`;
-  }
-
   findOne(id: number) {
     return `This action returns a #${id} comment`;
   }
