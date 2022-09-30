@@ -7,6 +7,7 @@ COPY . .
 
 # Install app dependencies
 RUN yarn --immutable
+RUN yarn schema:update
 RUN yarn build
 
 
