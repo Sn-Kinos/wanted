@@ -1,6 +1,6 @@
 import { EntityRepository, FilterQuery } from '@mikro-orm/core';
 import { InjectRepository } from '@mikro-orm/nestjs';
-import { Injectable } from '@nestjs/common';
+import { ForbiddenException, Injectable, NotFoundException } from '@nestjs/common';
 import bcrypt from 'bcryptjs';
 import { CreatePostDto } from './dto/create-post.dto';
 import { GetPostDto } from './dto/get-post.dto';
@@ -69,8 +69,28 @@ export class PostService {
     });
   }
 
-  update(id: number, updatePostDto: UpdatePostDto) {
-    return `This action updates a #${id} post`;
+  async update(id: number, updatePostDto: UpdatePostDto) {
+    const post = await this.postRepository.findOne({
+      index: id,
+    });
+
+    if (post) {
+      const isPasswordCorrect = await bcrypt.compare(updatePostDto.password, post.password);
+
+      if (isPasswordCorrect) {
+        delete updatePostDto.password;
+        this.postRepository.assign(post, updatePostDto);
+        await this.postRepository.persist(post).flush();
+
+        delete post.password;
+
+        return post;
+      } else {
+        throw new ForbiddenException('비밀번호가 일치하지 않습니다.');
+      }
+    }
+
+    throw new NotFoundException('존재하지 않는 게시글입니다.');
   }
 
   remove(id: number) {
